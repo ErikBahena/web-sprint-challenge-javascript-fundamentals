@@ -17,7 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+// The "nested function" while executing is trying to define the variable internal. Since it can't find it in it's own scope it will look into it's parent scope, the myFunction scope. Since the variable can be found there, then the nested function will run properly referencing the variable internal to the internal variable declared in the myFunction. The same goes on for the external variable, it can't be found in the myFunction scope so the function looks into its parent scope and defines the variable.
 
 
 
@@ -28,9 +28,8 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  return (((num)*(num + 1)) / 2);
   }
  
 
@@ -56,8 +55,10 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(zooArr){
+    const displayNames = [];
+    zooArr.forEach(animal => displayNames.push(`name: ${animal.animal_name}, scientific: ${animal.scientific_name}`));
+    return displayNames;
   }
   
 
@@ -67,8 +68,8 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(zooArr){
+    return zooArr.map(animalObj => animalObj.animal_name.toLowerCase())
   }
   
   
@@ -77,8 +78,9 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(zooArr){
+    // Using the and statement below with this logic: if the left side of the operator is true then the right side will run. Since it's within an arrow function the animalObj will be returned. It's the last thing to be executed.
+    return zooArr.filter(animalObj => animalObj.population < 5 && animalObj)
   }
   
 
@@ -88,8 +90,8 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(zooArr){
+    return zooArr.reduce((acc, cur) => acc + cur.population, 0)
   }
   
   
